@@ -8,22 +8,30 @@ namespace Ejercicio_Clases
 {
     internal class Ave
     {
-        public string? Nombre;
+        public string Nombre { get; set; }
 
-        public string? Color;
+        public string Color { get; set; }
 
-        public string? Tamano;
+        public string Tamano { get; set; }
+        
+        public FamiliaAve Familia { get; set; }
 
-        public string? Familia;
+        public string SexoBiologico { get; set; }
 
-        public string? SexoBiologico;
-
-        public bool? EsVoladora;
+        public bool EsVoladora { get; set; }
 
         //Constructor
         public Ave()
         {
             EsVoladora = true;
+            Familia = new FamiliaAve();
+        }
+
+        public Ave(string nombre)
+        {
+            Nombre = nombre;
+            EsVoladora = true;
+            Familia = new FamiliaAve();
         }
 
         public void imprimir()
@@ -32,7 +40,8 @@ namespace Ejercicio_Clases
             Console.WriteLine($"Nombre: {Nombre}");
             Console.WriteLine($"Tamaño: {Tamano}");
             Console.WriteLine($"Color: {Color}");
-            Console.WriteLine($"Familia: {Familia}");
+            Console.WriteLine($"Familia: {Familia.Nombre}");
+            Console.WriteLine($"Grupo Familia: {Familia.Grupo}");
             Console.WriteLine($"Sexo: {SexoBiologico}");
             Console.WriteLine($"Es Voladora: {EsVoladora}");
         }
